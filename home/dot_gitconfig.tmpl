@@ -1,0 +1,55 @@
+{{- $gpgKeys := output "gpg" "--list-keys" | split "\n" -}}
+{{- $keyID := $gpgKeys._3 | trim | substr 24 40 -}}
+{{- if $keyID -}}
+[commit]
+  gpgsign = true
+
+{{ end -}}
+[core]
+  editor = {{ .editor }}
+
+[credential "https://github.com"]
+  helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
+
+[credential "https://gist.github.com"]
+  helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
+
+[diff]
+  tool = vscode
+
+[difftool "vscode"]
+  cmd = code --wait --diff $LOCAL $REMOTE
+
+[gitreview]
+  remote = origin
+{{ if $keyID }}
+[gpg]
+  recipient = {{ $keyID }}
+{{ end -}}
+{{ if eq .proxy "enabled" }}
+
+[init]
+  defaultBranch = main
+
+[merge]
+  autoStash = true
+  tool = vscode
+
+[mergetool "vscode"]
+  cmd = code --wait $MERGED
+
+[push]
+  autoSetupRemote = true
+
+[rebase]
+  autoStash = true
+{{ if $keyID }}
+[tag]
+  gpgsign = true
+{{ end }}
+[user]
+  email = {{ .email }}
+  name = {{ .name }}
+{{- if $keyID }}
+  signingkey = {{ $keyID }}
+{{- end }}

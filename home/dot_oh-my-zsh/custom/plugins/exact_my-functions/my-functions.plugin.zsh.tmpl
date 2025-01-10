@@ -1,0 +1,3 @@
+unset_aws_envs() {
+  unset $(env | grep '^AWS_' | awk -F= '{print $1}')
+}

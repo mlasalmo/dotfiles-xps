@@ -1,0 +1,11 @@
+CredentialProcessAutoLogin = true
+CustomBrowserPath = "/mnt/c/Program Files/Mozilla Firefox/firefox.exe"
+CustomSSOBrowserPath = ""
+DefaultBrowser = "FIREFOX"
+DefaultExportAllEnvVar = true
+ExportCredentialSuffix = "exported"
+LastCheckForUpdates = 3
+Ordering = ""
+
+[Keyring]
+  Backend = "pass"

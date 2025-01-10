@@ -1,0 +1,139 @@
+---
+# Project information
+site_name: Local Environment
+site_url: https://pages.github.com/mlasalmo/dotfiles-xpc/
+
+# Repository
+repo_name: mlasalmo/dotfiles
+repo_url: https://github.com/mlasalmo/dotfiles-xpc
+
+# Theme configuration
+theme:
+  custom_dir: docs/overrides
+  favicon: assets/favicon.png
+  features:
+  - announce.dismiss
+  - content.action.edit
+  - content.action.view
+  - content.code.annotate
+  - content.code.copy
+  - content.code.select
+  - navigation.expand
+  - navigation.footer
+  - navigation.indexes
+  - navigation.instant
+  - navigation.instant.prefetch
+  - navigation.instant.progress
+  - navigation.path
+  - navigation.sections
+  - navigation.tabs
+  - navigation.tabs.sticky
+  - navigation.top
+  - navigation.tracking
+  - toc.follow
+  font:
+    code: Roboto Mono
+    text: Roboto
+  icon:
+    logo: fontawesome/solid/laptop-code
+    repo: fontawesome/brands/github
+  name: material
+  palette:
+  - media: "(prefers-color-scheme)"
+    toggle:
+      icon: material/link
+      name: Switch to light mode
+  - media: "(prefers-color-scheme: light)"
+    scheme: default
+    primary: blue
+    accent: deep orange
+    toggle:
+      icon: material/toggle-switch
+      name: Switch to dark mode
+  - media: "(prefers-color-scheme: dark)"
+    scheme: slate
+    primary: green
+    accent: deep purple
+    toggle:
+      icon: material/toggle-switch-off
+      name: Switch to system preference
+
+edit_uri: edit/main/docs/
+
+extra:
+  social:
+  - icon: simple/github
+    link: https://github.com/mlasalmo/dotfiles-xpc/
+
+extra_css:
+- stylesheets/banner.css
+
+# Extensions
+markdown_extensions:
+- admonition
+- attr_list
+- md_in_html
+- pymdownx.blocks.caption
+- pymdownx.details
+- pymdownx.emoji:
+    emoji_index: !!python/name:material.extensions.emoji.twemoji
+    emoji_generator: !!python/name:material.extensions.emoji.to_svg
+- pymdownx.highlight:
+    anchor_linenums: true
+    line_spans: __span
+    pygments_lang_class: true
+- pymdownx.inlinehilite
+- pymdownx.keys
+- pymdownx.snippets
+- pymdownx.superfences:
+    custom_fences:
+    - class: mermaid
+      format: !!python/name:pymdownx.superfences.fence_code_format
+      name: mermaid
+- pymdownx.tabbed:
+    alternate_style: true
+- toc:
+    permalink: true
+
+# Page tree
+nav:
+- Home: index.md
+- Getting started:
+  - Pre-requisites: getting-started/prerequisites.md
+  - Windows Features: getting-started/windows-features.md
+  - Install WSL: getting-started/install-wsl.md
+  - Configure Terminal Font: getting-started/terminal-font.md
+- Setup:
+  - setup/index.md
+  - Install dotfiles: setup/install.md
+- Contributing:
+  - contributing/index.md
+  - Reporting a bug: contributing/index.md
+  - Reporting a docs issue: contributing/index.md
+  - Requesting a change: contributing/index.md
+  - Making a pull request: contributing/index.md
+  - Asking a question: https://github.com/mlasalmo/dotfiles-xpc/discussions
+
+# Plugins
+plugins:
+- asciinema-player:
+- git-authors:
+    enabled: true
+- git-revision-date-localized:
+    enable_creation_date: true
+- glightbox:
+    touchNavigation: true
+    loop: false
+    effect: zoom
+    slide_effect: slide
+    width: 100%
+    height: auto
+    zoomable: true
+    draggable: true
+    skip_classes:
+    - custom-skip-class-name
+    auto_caption: false
+    caption_position: bottom
+    background: white
+    shadow: true
+    manual: false
