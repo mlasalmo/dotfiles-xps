@@ -1,0 +1,67 @@
+{
+  // Disable ShellCheck from Bash IDE as we use VS Code ShellCheck
+  "[json]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[shellscript]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "bashIde.shellcheckPath": "",
+  "devbox.autoShellOnTerminal": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.shellcheck": "explicit"
+  },
+  "files.associations": {
+    "**/home/install": "shellscript",
+    "*_zshrc": "shellscript",
+    "*_antigenrc": "shellscript",
+    "*_profile.tmpl": "shellscript",
+    "*_bashrc": "shellscript",
+    "*_bash_aliases.tmpl": "shellscript",
+    "**/home/**/run_*": "shellscript",
+    "**/home/**/executable_*": "shellscript",
+    "**/home/**/modify_*": "helm",
+    "*.yaml.tmpl": "helm",
+    ".chezmoi*.yaml": "helm",
+    ".chezmoiignore": "helm",
+    ".chezmoiremove": "helm",
+    "**/.chezmoitemplates/*": "helm",
+    "**/.chezmoitemplates/*-library": "shellscript"
+  },
+  "shellcheck.ignorePatterns": {
+    "**/*.zsh": true,
+    "**/*.zshrc": true,
+    "**/zshrc": true,
+    "**/*.zprofile": true,
+    "**/zprofile": true,
+    "**/*.zlogin": true,
+    "**/zlogin": true,
+    "**/*.zlogout": true,
+    "**/zlogout": true,
+    "**/*.zshenv": true,
+    "**/zshenv": true,
+    "**/*.zsh-theme": true,
+    // custom
+    "**/*_zshrc": true
+  },
+  // Mkdocs-material configuration
+  // https://squidfunk.github.io/mkdocs-material/creating-your-site/?h=yaml#configuration
+  "yaml.schemas": {
+    "https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml"
+  },
+  "yaml.customTags": [
+    "!ENV scalar",
+    "!ENV sequence",
+    "!relative scalar",
+    "tag:yaml.org,2002:python/name:material.extensions.emoji.to_svg",
+    "tag:yaml.org,2002:python/name:material.extensions.emoji.twemoji",
+    "tag:yaml.org,2002:python/name:pymdownx.superfences.fence_code_format",
+    "tag:yaml.org,2002:python/object/apply:pymdownx.slugs.slugify mapping"
+  ],
+}

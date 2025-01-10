@@ -1,0 +1,63 @@
+{{- $adm_id := .chezmoi.username | replace "sesa" "ADM" -}}
+{{- $profiles := list "se-e2edcr-dit:133325019626" "se-e2edcr-sit:671453994087" "se-e2edcr-uat:745114819366" "se-e2edcr-ppr:114205859498" "se-e2edcr-prd:809695133056" -}}
+
+{{- range $profiles -}}
+{{- $data := split ":" . -}}
+[profile {{ $data._0 }}]
+account_id         = {{ $data._1 }}
+cli_history        = enabled
+cli_pager          = jq
+credential_process = saml2aws login --credential-process --idp-account {{ $data._0 }} --username {{ $adm_id }}
+env                = {{ trunc -3 $data._0 }}
+{{ if eq (trunc -3 $data._0) "sit" -}}
+granted_color      = yellow
+{{- else if eq (trunc -3 $data._0) "uat" -}}
+granted_color      = orange
+{{- else if eq (trunc -3 $data._0) "prd" -}}
+granted_color      = red
+{{- else -}}
+granted_color      = green
+{{- end }}
+granted_icon       = fingerprint
+output             = json
+region             = eu-west-1
+
+{{ end -}}
+
+{{- range $profiles -}}
+{{- $data := split ":" . -}}
+[profile {{ $data._0 }}-exported]
+cli_history        = enabled
+cli_pager          = jq
+env                = {{ trunc -3 $data._0 }}
+{{ if eq (trunc -3 $data._0) "sit" -}}
+granted_color      = yellow
+{{- else if eq (trunc -3 $data._0) "uat" -}}
+granted_color      = orange
+{{- else if eq (trunc -3 $data._0) "prd" -}}
+granted_color      = red
+{{- else -}}
+granted_color      = green
+{{- end }}
+granted_icon       = fingerprint
+output             = json
+region             = eu-west-1
+
+{{ end -}}
+
+#----------------------------------------------------#
+# _                     _  _____ _             _     #
+#| |                   | |/ ____| |           | |    #
+#| |     ___   ___ __ _| | (___ | |_ __ _  ___| | __ #
+#| |    / _ \ / __/ _` | |\___ \| __/ _` |/ __| |/ / #
+#| |___| (_) | (_| (_| | |____) | || (_| | (__|   <  #
+#|______\___/ \___\__,_|_|_____/ \__\__,_|\___|_|\_\ #
+#                                                    #
+#----------------------------------------------------#
+[profile localstack]
+account_id            = 000000000000
+aws_access_key_id     = test
+aws_secret_access_key = test
+cli_pager             = jq
+endpoint_url          = http://localhost:4566
+region                = eu-west-1

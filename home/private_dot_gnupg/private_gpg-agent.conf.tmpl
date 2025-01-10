@@ -1,0 +1,27 @@
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║ gpg-agent configuration (~/.gnupg/gpg-agent.conf)                         ║
+# ║                                                                           ║
+# ║ Note:                                                                     ║
+# ║ After changing the configuration, reload the agent:                       ║
+# ║ gpg-connect-agent reloadagent /bye                                        ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+
+allow-preset-passphrase
+
+# Time a cache entry is valid (in seconds) default: 600
+# Each time a cache entry is accessed, the entry's timer is reset
+default-cache-ttl 3600
+
+log-file /tmp/gpg-agent.log
+
+# Set the maximum time a cache entry is valid to n seconds.
+# After this time a cache entry will be expired even if it has been accessed recently or has been set using gpg-preset-passphrase.
+# The default is 2 hours (7200 seconds).
+max-cache-ttl 28800
+
+{{ if eq .chezmoi.os "darwin" -}}
+pinentry-program /opt/homebrew/bin/pinentry-mac
+{{- end -}}
+{{- if eq .chezmoi.os "linux" -}}
+pinentry-program /usr/bin/pinentry
+{{- end }}

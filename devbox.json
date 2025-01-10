@@ -1,0 +1,19 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.13.6/.schema/devbox.schema.json",
+  "env": {
+    "HISTFILE": "${HOME}/.zsh_history",
+    "PATH": "${PATH}:${HOME}/bin"
+  },
+  "packages": {
+    "pre-commit": "4.0.1",
+    "python": "3.12"
+  },
+  "shell": {
+    "init_hook": [
+      "pre-commit install > /dev/null 2>&1",
+      "source ${VENV_DIR}/bin/activate",
+      "pip3 install -r docs/requirements.txt &> /dev/null"
+    ],
+    "scripts": {}
+  }
+}

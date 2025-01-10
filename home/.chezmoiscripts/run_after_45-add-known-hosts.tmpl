@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+test -d ~/.ssh || mkdir -p ~/.ssh
+chmod 700 ~/.ssh
+
+if [[ ! -f ~/.ssh/known_hosts ]]; then
+  touch ~/.ssh/known_hosts
+  chmod 600 ~/.ssh/known_hosts
+fi
+
+if ! grep -q "^github.com " ~/.ssh/known_hosts; then
+  ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
+fi

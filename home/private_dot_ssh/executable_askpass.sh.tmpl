@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+keepassxc-cli show "/mnt/c/Users/{{ .chezmoi.username }}/keepassxc-personal.kdbx" "SSH Keys" \
+  --attributes "Password" \
+  --key-file "/mnt/c/Users/{{ .chezmoi.username }}/keepassxc.keyx" \
+  --no-password  \
+  --show-protected
