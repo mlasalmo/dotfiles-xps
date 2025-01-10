@@ -1,49 +1,10 @@
-{{- $adm_id := .chezmoi.username | replace "sesa" "ADM" -}}
-{{- $profiles := list "se-e2edcr-dit:133325019626" "se-e2edcr-sit:671453994087" "se-e2edcr-uat:745114819366" "se-e2edcr-ppr:114205859498" "se-e2edcr-prd:809695133056" -}}
-
-{{- range $profiles -}}
-{{- $data := split ":" . -}}
-[profile {{ $data._0 }}]
-account_id         = {{ $data._1 }}
-cli_history        = enabled
-cli_pager          = jq
-credential_process = saml2aws login --credential-process --idp-account {{ $data._0 }} --username {{ $adm_id }}
-env                = {{ trunc -3 $data._0 }}
-{{ if eq (trunc -3 $data._0) "sit" -}}
-granted_color      = yellow
-{{- else if eq (trunc -3 $data._0) "uat" -}}
-granted_color      = orange
-{{- else if eq (trunc -3 $data._0) "prd" -}}
-granted_color      = red
-{{- else -}}
-granted_color      = green
-{{- end }}
-granted_icon       = fingerprint
-output             = json
-region             = eu-west-1
-
-{{ end -}}
-
-{{- range $profiles -}}
-{{- $data := split ":" . -}}
-[profile {{ $data._0 }}-exported]
-cli_history        = enabled
-cli_pager          = jq
-env                = {{ trunc -3 $data._0 }}
-{{ if eq (trunc -3 $data._0) "sit" -}}
-granted_color      = yellow
-{{- else if eq (trunc -3 $data._0) "uat" -}}
-granted_color      = orange
-{{- else if eq (trunc -3 $data._0) "prd" -}}
-granted_color      = red
-{{- else -}}
-granted_color      = green
-{{- end }}
-granted_icon       = fingerprint
-output             = json
-region             = eu-west-1
-
-{{ end -}}
+[profile Mariano-Lasala/AdministratorAccess]
+granted_sso_start_url      = https://d-9367413bfc.awsapps.com/start
+granted_sso_region         = eu-west-1
+granted_sso_account_id     = 362941420978
+granted_sso_role_name      = AdministratorAccess
+common_fate_generated_from = aws-sso
+credential_process         = granted credential-process --profile Mariano-Lasala/AdministratorAccess
 
 #----------------------------------------------------#
 # _                     _  _____ _             _     #
