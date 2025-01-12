@@ -1,6 +1,7 @@
 # shellcheck shell=bash
 
 wanted_extensions=(
+  asvetliakov.vscode-neovim
   ms-vscode-remote.vscode-remote-extensionpack
 )
 
@@ -8,7 +9,7 @@ function is_vscode_extension_installed() {
   local extension="$1"
 
   # shellcheck disable=SC2312
-  code --list-extensions 2>/dev/null | grep "${extension}" >/dev/null
+  code --list-extensions 2>/dev/null | grep "${extension}" > /dev/null
 }
 
 function install_vscode_extensions() {
