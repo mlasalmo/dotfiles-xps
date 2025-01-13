@@ -1,16 +1,16 @@
 ---
 # Project information
 site_name: Local Environment
-site_url: https://pages.github.com/mlasalmo/dotfiles-xpc/
+site_url: https://mlasalmo.github.io/dotfiles-xps/
 
 # Repository
-repo_name: mlasalmo/dotfiles
-repo_url: https://github.com/mlasalmo/dotfiles-xpc
+repo_name: mlasalmo/dotfiles-xps
+repo_url: https://github.com/mlasalmo/dotfiles-xps
 
 # Theme configuration
 theme:
   custom_dir: docs/overrides
-  favicon: assets/favicon.png
+  # favicon: assets/favicon.png
   features:
   - announce.dismiss
   - content.action.edit
