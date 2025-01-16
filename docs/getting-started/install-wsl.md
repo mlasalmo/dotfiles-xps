@@ -29,7 +29,7 @@
     wsl --update
     ```
 
-* Set WSL 2 as Default Version
+* Set WSL default version
 
     ```powershell title="PowerShell"
     wsl --set-default-version 2
