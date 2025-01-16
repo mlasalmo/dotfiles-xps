@@ -26,17 +26,17 @@
     wsl --install --distribution Ubuntu-22.04
     ```
 
-!!! note
-    Once the distribution is installed you'll be prompted to add a new user.
-    !!! warning
-        The naming convention doesn't allow capital letters.
+    !!! note
+        Once the distribution is installed you'll be prompted to add a new user.
+        !!! warning
+            The naming convention doesn't allow capital letters.
 
-!!! warning
-    An error will show if you don't follow this naming convention:
-    !!! failure "Error"
-        **adduser**: Please enter a username matching the regular expression configured
-        via the NAME_REGEX[_SYSTEM] configuration variable.  Use the `--force-badname'
-        option to relax this check or reconfigure NAME_REGEX.
+    !!! warning
+        An error will show if you don't follow this naming convention:
+        !!! failure "Error"
+            **adduser**: Please enter a username matching the regular expression configured
+            via the NAME_REGEX[_SYSTEM] configuration variable.  Use the `--force-badname'
+            option to relax this check or reconfigure NAME_REGEX.
 
 ## Fork dotfiles repo
 
@@ -71,19 +71,18 @@
     ```
 
     !!! bug
-        Note from KeePassXC [Download page](https://keepassxc.org/download/#windows)
+        !!! note "Note from KeePassXC [Download page](https://keepassxc.org/download/#windows)"
+            We have received some reports of silent crashing starting with 2.7.9.
 
-        We have received some reports of silent crashing starting with 2.7.9.
-
-        This is immediately fixed by reinstalling the MSVC Redistributable.
-
-        ```powershell
+            This is immediately fixed by reinstalling the MSVC Redistributable.
+        To fix this bug open a PowerShell terminal and run:
+        ```powershell title="PowerShell"
         winget install Microsoft.VCRedist.2015+.x64
         ```
 
 * Save all the keys in KeePassXC
 
-!!! tip "Tip - Connect USB devices to WSL"
+??? tip "Tip - Connect USB devices to WSL"
     Optional, in case you have a Yubikey and want to add extra layer of security.
     !!! note ""
         [Microsoft Learn Documentation](https://learn.microsoft.com/en-us/windows/wsl/connect-usb)
