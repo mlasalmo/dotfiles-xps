@@ -134,6 +134,9 @@ source "${ZSH}/oh-my-zsh.sh"
 export DISPLAY=":0"
 export SSH_ASKPASS="${HOME}/.ssh/askpass.sh"
 
+# Set default editor
+export EDITOR="nvim"
+
 # https://github.com/microsoft/vscode/issues/153400#issue-1286534600
 if [[ "${TERM_PROGRAM}" == "vscode" ]]; then
   ITERM_SHELL_INTEGRATION_INSTALLED="Yes"

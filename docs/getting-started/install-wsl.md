@@ -22,14 +22,15 @@ wsl --install --distribution Ubuntu-22.04
 ```
 
 > Note: Once the distribution is installed you'll be prompted to add a new user.
-Fill the username with your SESA account in low letters, ex: sesa123456
+
+The naming convention doesn't allow capital letters.
 
 An error will show if you don't follow this naming convention:
 > adduser: Please enter a username matching the regular expression configured
     via the NAME_REGEX[_SYSTEM] configuration variable.  Use the `--force-badname'
     option to relax this check or reconfigure NAME_REGEX.
 
-### Clone the DSC/dotfiles template repo
+### Clone the dotfiles template repo
 
 1. Create a new repo based on `DSC/dotfiles` template.
 
