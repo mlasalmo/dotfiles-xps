@@ -21,48 +21,44 @@ wsl --set-default-version 2
 wsl --install --distribution Ubuntu-22.04
 ```
 
-> Note: Once the distribution is installed you'll be prompted to add a new user.
+!!! note
+    Once the distribution is installed you'll be prompted to add a new user.
 
-The naming convention doesn't allow capital letters.
+    The naming convention doesn't allow capital letters.
 
-An error will show if you don't follow this naming convention:
-> adduser: Please enter a username matching the regular expression configured
+!!! warning
+
+    An error will show if you don't follow this naming convention:
+
+    **adduser**: Please enter a username matching the regular expression configured
     via the NAME_REGEX[_SYSTEM] configuration variable.  Use the `--force-badname'
     option to relax this check or reconfigure NAME_REGEX.
 
-### Clone the dotfiles template repo
+### Fork dotfiles repo
 
-1. Create a new repo based on `DSC/dotfiles` template.
+1. Fork this repo `mlasalmo/dotfiles-xps`.
 
-    [New Repository :octicons-repo-16:](https://github.com/organizations/mlasalmo/repositories/new){ .md-button }
+    [Fork Repository :octicons-repo-16:](https://github.com/mlasalmo/dotfiles/fork){ .md-button }
 
-    Use next image as a reference:
-
-    ![New Repository](../assets/getting-started/ghe-clone-template.png)
-
-* Create a PAT with read only permission to access only the `DSC/dotfiles` repo.
-
-    Follow next link to create a new [Fine-grained token](https://github.com/settings/personal-access-tokens/new)
-
-* Enter the newly created distribution:
-```powershell title="PowerShell"
-wsl
-```
-
-* Clone `DSC/dotfiles` template repo in your GHE personal space (SESAID).
+* Clone `<GITHUB_USER>/dotfiles` repo in your personal space.
 ```sh
-git clone https://github.com/mlasalmo/dotfiles-xpc ~/.dotfiles
+git clone https://github.com/<GITHUB_USER>/dotfiles ~/.dotfiles
 ```
 
-* Generate SSH keys:
-    * [Github Enterprise](https://docs.github.com/en/enterprise-server@3.14/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=linux#generating-a-new-ssh-key)
-    * [Azure DevOps](https://learn.microsoft.com/en-us/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops#step-1-create-your-ssh-keys)
+* [Generate Github SSH keys](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
-* [Generate GPG key](https://docs.github.com/en/enterprise-server@3.14/authentication/managing-commit-signature-verification/generating-a-new-gpg-key#generating-a-gpg-key)
+* [Add generated SSH keys to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+
+* [Generate GPG key](https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)
+
+* [Add generated GPG key to your GitHub account](https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account)
 
 * Install KeePassXC
 
-> Note from KeePassXC Download page: https://keepassxc.org/download/#windows
+!!! Note
+
+    Note from KeePassXC [Download page](https://keepassxc.org/download/#windows)
+
     We have received some reports of silent crashing starting with 2.7.9.
     This is immediately fixed by reinstalling the MSVC Redistributable.
 
