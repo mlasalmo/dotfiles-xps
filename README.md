@@ -16,10 +16,10 @@ It will be enabled by default when running in a Dev Container or in distribution
 
 ## Documentation
 
-For the full documentation follow this [link](https://pages.github.com/mlasalmo/dotfiles-xpc/)
+For the full documentation follow this [link](https://pages.github.com/mlasalmo/dotfiles-xps/)
 
 ---
 
 ### Extra scripts
 
-There are some [scripts](https://github.com/mlasalmo/dotfiles-xpc/tree/main/scripts) here to help you automate tricky activities when setting up your machine.
+There are some [scripts](https://github.com/mlasalmo/dotfiles-xps/tree/main/scripts) here to help you automate tricky activities when setting up your machine.

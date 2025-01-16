@@ -63,7 +63,7 @@ edit_uri: edit/main/docs/
 extra:
   social:
   - icon: simple/github
-    link: https://github.com/mlasalmo/dotfiles-xpc/
+    link: https://github.com/mlasalmo/dotfiles-xps/
 
 extra_css:
 - stylesheets/banner.css
@@ -112,7 +112,7 @@ nav:
   - Reporting a docs issue: contributing/index.md
   - Requesting a change: contributing/index.md
   - Making a pull request: contributing/index.md
-  - Asking a question: https://github.com/mlasalmo/dotfiles-xpc/discussions
+  - Asking a question: https://github.com/mlasalmo/dotfiles-xps/discussions
 
 # Plugins
 plugins:
