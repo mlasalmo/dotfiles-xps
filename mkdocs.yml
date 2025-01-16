@@ -99,7 +99,6 @@ markdown_extensions:
 nav:
 - Home: index.md
 - Getting started:
-  - Pre-requisites: getting-started/prerequisites.md
   - Windows Features: getting-started/windows-features.md
   - Install WSL: getting-started/install-wsl.md
   - Configure Terminal Font: getting-started/terminal-font.md
