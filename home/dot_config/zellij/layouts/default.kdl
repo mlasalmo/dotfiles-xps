@@ -10,8 +10,7 @@ layout {
       plugin location="zellij:status-bar"
     }
   }
-  tt name="Local" focus=true
-  tt name="SIT"
-  tt name="UAT"
-  tt name="PRD"
+  tt name="Local #1" focus=true
+  tt name="Local #2"
+  tt name="Local #3"
 }
