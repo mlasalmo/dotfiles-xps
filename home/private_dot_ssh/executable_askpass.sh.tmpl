@@ -1,7 +1,23 @@
 #!/usr/bin/env bash
 
-keepassxc-cli show "/mnt/c/Users/{{ .chezmoi.username }}/keepassxc-personal.kdbx" "SSH Keys" \
-  --attributes "Password" \
-  --key-file "/mnt/c/Users/{{ .chezmoi.username }}/keepassxc.keyx" \
-  --no-password  \
-  --show-protected
+OS=$(uname -s)
+case "${OS}" in
+  Darwin)
+    pass="$(bw get item 'SSH Keys')"
+    pass="$(echo "${pass}" | jq -r '.fields[] | select(.name == "password") | .value')"
+    echo "${pass}"
+    exit 0
+    ;;
+  Linux)
+    keepassxc-cli show "/mnt/c/Users/{{ .chezmoi.username }}/keepassxc-personal.kdbx" "SSH Keys" \
+      --attributes "Password" \
+      --key-file "/mnt/c/Users/{{ .chezmoi.username }}/keepassxc.keyx" \
+      --no-password  \
+      --show-protected
+    exit 0
+    ;;
+  *)
+    echo "Unsupported OS: ${OS}" >&2
+    exit 1
+    ;;
+esac
