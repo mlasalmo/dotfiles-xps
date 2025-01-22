@@ -14,7 +14,7 @@ wanted_packages=(
 OS="$(uname -s)"
 case "${OS}" in
   Darwin)
-    wanted_packages=(bitwarden-cli)
+    wanted_packages+=(bitwarden-cli)
     ;;
   Linux)
     wanted_packages+=(keepassxc)

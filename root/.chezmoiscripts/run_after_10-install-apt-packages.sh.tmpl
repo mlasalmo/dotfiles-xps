@@ -17,17 +17,15 @@ readonly wanted_packages=(
   dialog
   direnv
   dnsutils
-  # docker-buildx-plugin
-  # docker-ce
-  # docker-ce-cli
-  # docker-compose-plugin
+  docker-buildx
+  docker.io
   file
   git
   gnupg
   jq
   lsb-release
-  net-tools
   neovim
+  net-tools
   npm
   parallel
   pass
@@ -53,20 +51,20 @@ readonly wanted_packages=(
   yaru-theme-gtk
   yaru-theme-icon
   yaru-theme-sound
-  # {{ if not .is_wsl }}
-  yaru-theme-gnome-shell
-  libsecret-1-0
+  # {{   if not .is_wsl }}
   gnome-menus
-  # {{ end }}
+  libsecret-1-0
+  yaru-theme-gnome-shell
+  # {{   end }}
   # {{ end }}
   # {{ if .is_wsl }}
   wslu
   # {{ else }}
-  # {{ if eq .chezmoi.osRelease.versionCodename "jammy" }}
+  # {{   if eq .chezmoi.osRelease.versionCodename "jammy" }}
   linux-generic-hwe-22.04
-  # {{ else if eq .chezmoi.osRelease.versionCodename "focal" }}
+  # {{   else if eq .chezmoi.osRelease.versionCodename "focal" }}
   linux-generic-hwe-20.04
-  # {{ end }}
+  # {{   end }}
   # {{ end }}
 )
 missing_packages=()
