@@ -40,10 +40,10 @@ pytz==2024.2
 PyYAML==6.0.2
 pyyaml_env_tag==0.1
 regex==2024.11.6
-requests==2.32.3
+requests>=2.32.4
 six==1.16.0
 smmap==5.0.1
-urllib3==2.2.3
+urllib3>=2.5.0
 verspec==0.1.0
 virtualenv==20.27.1
 watchdog==6.0.0
