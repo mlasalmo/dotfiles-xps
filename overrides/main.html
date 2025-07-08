@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+<!-- {:fontawesome-person-digging:} -->
+
+{% block announce %}
+  <!-- Add announcement here, including arbitrary HTML -->
+  <div class="custom-banner">
+    Work in Progress...
+    <span class="twemoji">
+      <!-- https://github.com/squidfunk/mkdocs-material/tree/master/material/templates/.icons  -->
+      {% include ".icons/fontawesome/solid/person-digging.svg" %}
+    </span>
+    <div class="teleprompter-text">
+      This page is currently under active development and is not yet available for any use beyond testing purposes.
+    </div>
+  </div>
+{% endblock %}
